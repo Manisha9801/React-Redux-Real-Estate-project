@@ -10,7 +10,7 @@ const CardComponent = (props) => {
         <CardImg top width="100%" src={img} alt="Card image cap" />
         <CardBody>
           <CardTitle>Card title</CardTitle>
-          <CardText style={{"text-overflow" : "ellipsis"}}>Some quick CardComponent text to build on the card title and make up the bulk of the card's content.</CardText>
+          <CardText style={{"textOverflow" : "ellipsis"}}>Some quick CardComponent text to build on the card title and make up the bulk of the card's content.</CardText>
           <Button>Button</Button>
         </CardBody>
       </Card>

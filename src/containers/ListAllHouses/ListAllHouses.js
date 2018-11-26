@@ -1,7 +1,10 @@
 import React , {Component} from 'react';
 import Wrapper from './../../hoc/Wrapper';
 import { Container, Row, Col } from 'reactstrap';
+
 import CardComponent from './../../component/UI/Cards/Cards';
+import Filter from './../../component/Filter/Filter';
+
 
 class ListAllHouses extends Component {
     render() {
@@ -10,27 +13,20 @@ class ListAllHouses extends Component {
                 <Container>
                     <Row>
                         <Col lg="3">
-                            Manisha
+                            <Filter />
                         </Col>
                         <Col lg="9">
                             <Row>
-                                <Col lg="4"><CardComponent /></Col>
-                                <Col lg="4"><CardComponent /></Col>
-                                <Col lg="4"><CardComponent /></Col>
+                                <Col lg="4" md="6" sm="12"><CardComponent /></Col>
+                                <Col lg="4" md="6" sm="12"><CardComponent /></Col>
+                                <Col lg="4" md="6" sm="12"><CardComponent /></Col>
+                                <Col lg="4" md="6" sm="12"><CardComponent /></Col>
+                                <Col lg="4" md="6" sm="12"><CardComponent /></Col>
+                                <Col lg="4" md="6" sm="12"><CardComponent /></Col>
+                                <Col lg="4" md="6" sm="12"><CardComponent /></Col>
+                                <Col lg="4" md="6" sm="12"><CardComponent /></Col>
+                                <Col lg="4" md="6" sm="12"><CardComponent /></Col>
                             </Row>
-                            <br /><br />
-                            <Row>
-                                <Col lg="4"><CardComponent /></Col>
-                                <Col lg="4"><CardComponent /></Col>
-                                <Col lg="4"><CardComponent /></Col>
-                            </Row>
-                            <br /><br />
-                            <Row>
-                                <Col lg="4"><CardComponent /></Col>
-                                <Col lg="4"><CardComponent /></Col>
-                                <Col lg="4"><CardComponent /></Col>
-                            </Row>
-                            <br /><br />
                         </Col>
                     </Row>
                 </Container>
