@@ -1,17 +1,24 @@
 import React from 'react';
-import { Card, CardImg, CardText, CardBody,CardTitle    , Button } from 'reactstrap';
+import { Card, CardImg, CardBody,CardTitle    , Button } from 'reactstrap';
 import img from './../../../assets/images/img2.jpg';
 import'./Cards.css';
 
+const imagePaath = './../../../assets/images';
 const CardComponent = (props) => {
+ const {card} = props;
   return (
     <div>
       <Card>
-        <CardImg top width="100%" src={img} alt="Card image cap" />
+        <CardImg top width="100%" src={require(`./../../../assets/images/${card.image.url}`)} alt={`${card.image.altText}`} />
         <CardBody>
-          <CardTitle>Card title</CardTitle>
-          <CardText style={{"textOverflow" : "ellipsis"}}>Some quick CardComponent text to build on the card title and make up the bulk of the card's content.</CardText>
-          <Button>Button</Button>
+          <CardTitle>{card.type}</CardTitle>
+          <div style={{"textOverflow" : "ellipsis"}}>
+            <p>{card.desc}</p>
+            <b>Location : {card.city}</b>
+            <br />
+            <b>Price : {card.amount}</b>
+            </div>
+          <Button className="btn btn-success">Button</Button>
         </CardBody>
       </Card>
     </div>

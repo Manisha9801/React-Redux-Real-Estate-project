@@ -1,5 +1,5 @@
 import React , {Component} from 'react';
-import {Collapse,Navbar,NavbarToggler,NavbarBrand,Nav,NavItem,NavLink } from 'reactstrap';
+import {Collapse,Navbar,NavbarToggler,Nav,NavItem } from 'reactstrap';
 import {Route, NavLink as RRNavLink, Switch} from 'react-router-dom';
 
 import Home from './../../../containers/Home/Home';
@@ -27,20 +27,16 @@ class NavBar extends Component {
         return(
             <Wrapper>
                 <Navbar color="light" light expand="md">
-                    <NavbarBrand> <RRNavLink to="/home"> WELCOME </RRNavLink></NavbarBrand>
+                    <NavItem> <RRNavLink to="/home"> WELCOME </RRNavLink></NavItem>
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>
                         <NavItem>
-                            <NavLink>
                                 {/* since we have NavLink in reactstrap so we have to create alias for react-router-dom NavLink */}
                                 <RRNavLink to="/home">Home</RRNavLink>  
-                            </NavLink>
                         </NavItem>
                         <NavItem>
-                        <NavLink>
                             <RRNavLink to="/view-all">View All Real Estate Houses</RRNavLink>
-                        </NavLink>
                         </NavItem>
                         </Nav>
                     </Collapse>

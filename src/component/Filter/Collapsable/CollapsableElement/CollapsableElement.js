@@ -1,15 +1,47 @@
-import React from 'react';
+import React , {Component} from 'react';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+
 import Wrapper from './../../../../hoc/Wrapper';
 import {Label,Input } from 'reactstrap';
+//actions
+import {toggleFilter,applyFilter} from './../../../../actions/FilteringData/FilterData';
 
-const CollapsableElement = (props) => {
-    const {filterOption,filteritems} = props;
-    return(
-        <Wrapper>
-            <Input type={filterOption.filterType} name={filteritems.name} value={filteritems.value} />
-            <Label>{filteritems.type}</Label><br />
-        </Wrapper>
-    );
+// import {AuthContext} from './../../../../containers/ListAllHouses/ListAllHouses'; 
+
+class CollapsableElement extends Component {
+
+    handleClick = (e) => {
+        this.props.applyFilter(e.target.name,e.target.value);        
+    }
+
+
+    render() {
+        const {filterOption,filteritems} = this.props;
+        // const teee =  
+            // <AuthContext.Consumer>
+                // {temp.length>0?<p>{`Manisha`}</p>:<p>{`Kumari`}</p>}
+            // </AuthContext.Consumer>
+        return(
+            <Wrapper>          
+                {/* {teee} */}
+                <Input  type={filterOption.filterType} onClick={(e) =>this.handleClick(e)} id={filteritems.name} name={filteritems.name} value={filteritems.value} />
+                <Label htmlFor={filteritems.name} >{filteritems.type}</Label><br />
+            </Wrapper>
+        );
+    }
 }
 
-export default CollapsableElement;
+const mapStateToProps = state => {
+    return {
+        cardData : state.list.cardData,
+        filterApplied : state.filter.filterApplied,
+        filterData : state.filter.filteredData
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return bindActionCreators({toggleFilter,applyFilter},dispatch);
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(CollapsableElement);
