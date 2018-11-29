@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import Wrapper from './../../../../hoc/Wrapper';
 import {Label,Input } from 'reactstrap';
 //actions
-import {toggleFilter,applyFilter} from './../../../../actions/FilteringData/FilterData';
+import {applyFilter} from './../../../../actions/FilteringData/FilterData';
 
 // import {AuthContext} from './../../../../containers/ListAllHouses/ListAllHouses'; 
 
@@ -34,14 +34,13 @@ class CollapsableElement extends Component {
 
 const mapStateToProps = state => {
     return {
-        cardData : state.list.cardData,
         filterApplied : state.filter.filterApplied,
         filterData : state.filter.filteredData
     }
 }
 
 const mapDispatchToProps = dispatch => {
-    return bindActionCreators({toggleFilter,applyFilter},dispatch);
+    return bindActionCreators({applyFilter},dispatch);
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(CollapsableElement);

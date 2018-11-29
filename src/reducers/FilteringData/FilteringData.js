@@ -1,18 +1,18 @@
 import CONSTANTS from './../../constant/constants';
 
 const initial_state = {
-    filteredData : [],
-    filterApplied : false
+    filteredData : []
 }
 
 export default (state=initial_state,{type,payload}) => {
-    switch(type) {
-        case CONSTANTS.TOGGLE_FILTER : 
+    switch(type) {     
+        
+        case CONSTANTS.COPY_DEFAULT_DATA : 
             return {
                 ...state,
-                filterApplied : payload.filterApplied
-            } 
-                        
+                filteredData : {...payload.filteredData}
+            }
+        
         case CONSTANTS.FILTER_BY_PRICE_ASC : 
             return {
                 ...state,

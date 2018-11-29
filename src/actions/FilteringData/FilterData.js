@@ -1,14 +1,13 @@
 import CONSTANTS from './../../constant/constants';
 
-export const toggleFilter =(currentStatus) => {
-    return {
-        type : CONSTANTS.TOGGLE_FILTER,
-        payload : {
-            filterApplied : !currentStatus
-        }
+export const setDefaultList = () => {
+    return(dispatch,getState) => {
+        const initial_state = getState().list.cardData;
+        dispatch(actionCreator(CONSTANTS.COPY_DEFAULT_DATA, {
+            filteredData : initial_state
+        }));
     }
 }
-
 
 export const applyFilter = (name,value) => {
     return (dispatch,getState)=>{
