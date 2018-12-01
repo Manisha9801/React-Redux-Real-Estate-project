@@ -6,12 +6,15 @@ import Wrapper from './../../../../hoc/Wrapper';
 import {Label,Input } from 'reactstrap';
 
 
-import {applyFilter,applyFilterOptions} from './../../../../actions/FilteringData/FilterData';
+import {applyFilter,applyFilterOptions,removeFilters} from './../../../../actions/FilteringData/FilterData';
 
 class CollapsableElement extends Component {
 
     handleClick = (e) => {
-        this.props.applyFilterOptions(e.target.name,e.target.value);
+        if(e.target.checked)
+            this.props.applyFilterOptions(e.target.name,e.target.value);
+        else 
+            this.props.removeFilters(e.target.name,e.target.value);
     }
 
     render() {
@@ -33,7 +36,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => {
-    return bindActionCreators({applyFilter,applyFilterOptions},dispatch);
+    return bindActionCreators({applyFilter,applyFilterOptions,removeFilters},dispatch);
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(CollapsableElement);

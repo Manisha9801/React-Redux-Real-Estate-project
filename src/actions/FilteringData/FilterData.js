@@ -28,6 +28,7 @@ export const applyFilterOptions = (name,value) => {
                 break;
             case CONSTANTS.FILTER_BY_PRICE:
                 filterOption[name] = value;
+                dispatch(actionCreator(CONSTANTS.APPLY_FILTER_OPTIONS, filterOption));
                 const ByPriceFilteredData = applyFilter(filterOption,cardData);
                 dispatch(actionCreator(CONSTANTS.SET_UPDATED_DATA,ByPriceFilteredData));
                 break;
@@ -74,7 +75,7 @@ export const applyFilter = (filterOption,cardData) => {
         }
         else if(key === CONSTANTS.FILTER_BY_CITY) {
             const city = filterOption[key];
-            console.log('city',city);
+            // console.log('city',city);
             if(city.length > 0)
                 updated_list = updated_list.filter((element) => city.indexOf(element.city)>-1);  //0 if found, -1 if not found
         }
@@ -82,3 +83,26 @@ export const applyFilter = (filterOption,cardData) => {
     // console.log("updated_list",updated_list);
     return updated_list;
 }  
+
+export const removeFilters = (name,value) => {
+    return (dispatch,getState) => {
+        const filterOption = getState().filter.filterOption;  
+        const cardData = getState().list.cardData;
+        // console.log("filterOption",filterOption);           
+        Object.keys(filterOption).map((key) => {
+            // console.log('filterOption[key]',filterOption[key]);
+            if(filterOption[key].length>0) {
+                debugger
+                console.log("filterOption[key]",filterOption[key]);
+                console.log('type',typeof(filterOption[key]));
+                debugger
+                filterOption[key] = filterOption[key].filter(item => item!=value);
+                dispatch(actionCreator(CONSTANTS.APPLY_FILTER_OPTIONS, filterOption));
+                const filteredData = applyFilter(filterOption,cardData);
+                dispatch(actionCreator(CONSTANTS.SET_UPDATED_DATA,filteredData));
+            }
+
+            // filterOption[key].filter(item => console.log("item",item));
+        }); 
+    }
+}

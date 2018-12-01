@@ -77,7 +77,7 @@ const cardData = [
         }
     },
     {
-        "type" : "4BHK",
+        "type" : "2BHK",
         "desc" : "It's a small house for nuclear family",
         "price" : 100000000,
         "amount" : "10 crore",
@@ -88,7 +88,7 @@ const cardData = [
         }
     },
     {
-        "type" : "4BHK",
+        "type" : "3BHK",
         "desc" : "It's a small house for nuclear family",
         "price" : 50000000,
         "amount" : "5 crore",
