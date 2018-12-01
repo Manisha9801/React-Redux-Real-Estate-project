@@ -1,6 +1,6 @@
 import React , {Component} from 'react';
 import {Collapse,Navbar,NavbarToggler,Nav,NavItem } from 'reactstrap';
-import {Route, NavLink as RRNavLink, Switch} from 'react-router-dom';
+import {Route, NavLink as RRNavLink, Switch, Redirect} from 'react-router-dom';
 
 import Home from './../../../containers/Home/Home';
 import ListAllHouses from './../../../containers/ListAllHouses/ListAllHouses';
@@ -47,8 +47,9 @@ class NavBar extends Component {
                     <li><NavLink to="/view-all">View All Real Estate Houses</NavLink></li>
                 </ul> */}
                 <Switch>
-                    <Route path="/home" component={Home} />
-                    <Route path="/view-all" component={ListAllHouses} />
+                    <Route exact path="/home" component={Home} />
+                    <Route exact path="/view-all" component={ListAllHouses} />
+                    <Redirect from="/" to="/home" />
                 </Switch>
             </Wrapper>
         );

@@ -6,7 +6,7 @@ const cardData = [
         "amount" : "15 Lacs",
         "city" : "Bangalore",
         "image":{
-            "url":"img2.jpg",
+            "url":"img1.jpg",
             "altText":""
         }
     },
@@ -17,7 +17,7 @@ const cardData = [
         "amount" : "10 Lacs",
         "city" : "Delhi",
         "image":{
-            "url":"img3.jpg",
+            "url":"img2.jpg",
             "altText":""
         }
     },
@@ -28,7 +28,7 @@ const cardData = [
         "amount" : "2 Lacs",
         "city" : "Mumbai",
         "image":{
-            "url":"img4.jpg",
+            "url":"img3.jpg",
             "altText":""
         }
     },
@@ -39,7 +39,7 @@ const cardData = [
         "amount" : "3 crore",
         "city" : "Bangalore",
         "image":{
-            "url":"img5.jpg",
+            "url":"img4.jpg",
             "altText":""
         }
     },
@@ -50,7 +50,7 @@ const cardData = [
         "amount" : "4 crore",
         "city" : "Delhi",
         "image":{
-            "url":"img6.jpg",
+            "url":"img5.jpg",
             "altText":""
         }
     },
@@ -61,7 +61,7 @@ const cardData = [
         "amount" : "30 lakhs",
         "city" : "Mumbai",
         "image":{
-            "url":"img2.jpg",
+            "url":"img6.jpg",
             "altText":""
         }
     },
@@ -72,7 +72,7 @@ const cardData = [
         "amount" : "25 Lacs",
         "city" : "Mumbai",
         "image":{
-            "url":"img3.jpg",
+            "url":"img7.jpg",
             "altText":""
         }
     },
@@ -83,7 +83,7 @@ const cardData = [
         "amount" : "10 crore",
         "city" : "Delhi",
         "image":{
-            "url":"img4.jpg",
+            "url":"img8.jpg",
             "altText":""
         }
     },
@@ -94,7 +94,7 @@ const cardData = [
         "amount" : "5 crore",
         "city" : "Delhi",
         "image":{
-            "url":"img5.jpg",
+            "url":"img9.jpg",
             "altText":""
         }
     },
@@ -105,7 +105,7 @@ const cardData = [
         "amount" : "43 lacs",
         "city" : "Mumbai",
         "image":{
-            "url":"img6.jpg",
+            "url":"img10.jpg",
             "altText":""
         }
     },

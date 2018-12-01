@@ -18,7 +18,7 @@ const filterData = [
     },
     {
     "filterCategory" : "Filter By City",
-    "filterType" : "radio",
+    "filterType" : "checkbox",
     "filters" : [
                 {"type" : "Bangalore" , "value" : "Bangalore","name":"ByCity"},
                 {"type" : "Mumbai" , "value" : "Mumbai","name":"ByCity"},

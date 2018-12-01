@@ -1,7 +1,12 @@
 import CONSTANTS from './../../constant/constants';
 
 const initial_state = {
-    filteredData : []
+    filteredData : [],
+    filterOption : {
+        "ByPrice":"",
+        "BySpace":[],
+        "ByCity":[]
+    }
 }
 
 export default (state=initial_state,{type,payload}) => {
@@ -10,15 +15,21 @@ export default (state=initial_state,{type,payload}) => {
         case CONSTANTS.COPY_DEFAULT_DATA : 
             return {
                 ...state,
-                filteredData : {...payload.filteredData}
+                filteredData : {...payload}
             }
         
-        case CONSTANTS.FILTER_BY_PRICE_ASC : 
+        case CONSTANTS.SET_UPDATED_DATA : 
             return {
                 ...state,
-                filteredData : {...payload.filteredData},
-                filterApplied : payload.filterApplied,
-            }                            
+                filteredData : {...payload}
+            }        
+            
+        case CONSTANTS.APPLY_FILTER_OPTIONS   : {
+            return { 
+                ...state,
+                filterOption : {...payload}
+            }
+        }
 
         default  :  return state;
     }
