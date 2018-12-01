@@ -9,6 +9,7 @@ import CardComponent from './../../component/UI/Cards/Cards';
 import Filter from './../../component/Filter/Filter';
 import {fetchListingData} from './../../actions/ListFullData/ListFullData';
 import {setDefaultList} from './../../actions/FilteringData/FilterData';
+import filterData from '../../constant/filter';
 
 class ListAllHouses extends Component {
 
@@ -18,23 +19,16 @@ class ListAllHouses extends Component {
     }
 
     renderCardData = () => {
-        // if(this.props.filterApplied) {
-            const {filteredData} = this.props;
-            return Object.keys(filteredData).map((key) => {
-                const card = filteredData[key];
-                return <Col key={key} lg="4" md="6" sm="12"><CardComponent card={card}/></Col>
-            });
-        // }
-        // else {
-            // const {cardData} = this.props;
-            // return Object.keys(cardData).map((key) => {
-            //     const card = cardData[key];
-            //     return <Col key={key} lg="4" md="6" sm="12"><CardComponent card={card}/></Col>
-            // }); 
-        // }
+        const {filteredData} = this.props;
+        debugger
+        return Object.keys(filteredData).map((key) => {
+            const card = filteredData[key];
+            return <Col key={key} lg="4" md="6" sm="12"><CardComponent card={card}/></Col>
+        });
     }
 
     render() { 
+        const {filteredData} = this.props;
         return(
             <Wrapper>
                 <Container>
@@ -44,7 +38,7 @@ class ListAllHouses extends Component {
                         </Col>
                         <Col lg="9">
                             <Row>
-                                {this.renderCardData()}
+                                {Object.keys(filteredData).length ? this.renderCardData():<p>No data found..</p>}
                             </Row>
                         </Col>
                     </Row>

@@ -1,9 +1,7 @@
 import React from 'react';
 import { Card, CardImg, CardBody,CardTitle    , Button } from 'reactstrap';
-import img from './../../../assets/images/img2.jpg';
 import'./Cards.css';
-
-const imagePaath = './../../../assets/images';
+  
 const CardComponent = (props) => {
  const {card} = props;
   return (
