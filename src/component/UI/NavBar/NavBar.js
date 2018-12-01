@@ -1,16 +1,14 @@
 import React , {Component} from 'react';
 import {Collapse,Navbar,NavbarToggler,Nav,NavItem } from 'reactstrap';
-import {Route, NavLink as RRNavLink, Switch, Redirect} from 'react-router-dom';
+import {NavLink as RRNavLink} from 'react-router-dom';
 
-import Home from './../../../containers/Home/Home';
-import ListAllHouses from './../../../containers/ListAllHouses/ListAllHouses';
 import Wrapper from './../../../hoc/Wrapper';
+import RouterComponent from './../../../routercomponent/routercomponent';
 
 class NavBar extends Component {
 
     constructor(props) {
         super(props);
-    
         this.toggle = this.toggle.bind(this);
         this.state = {
           isOpen: false
@@ -41,16 +39,11 @@ class NavBar extends Component {
                         </Nav>
                     </Collapse>
                 </Navbar>
-
+                <RouterComponent />
                 {/* <ul>
                     <li><NavLink to="/home">Home</NavLink></li>
                     <li><NavLink to="/view-all">View All Real Estate Houses</NavLink></li>
                 </ul> */}
-                <Switch>
-                    <Route exact path="/home" component={Home} />
-                    <Route exact path="/view-all" component={ListAllHouses} />
-                    <Redirect from="/" to="/home" />
-                </Switch>
             </Wrapper>
         );
     }

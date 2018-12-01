@@ -9,7 +9,6 @@ import CardComponent from './../../component/UI/Cards/Cards';
 import Filter from './../../component/Filter/Filter';
 import {fetchListingData} from './../../actions/ListFullData/ListFullData';
 import {setDefaultList} from './../../actions/FilteringData/FilterData';
-import filterData from '../../constant/filter';
 
 class ListAllHouses extends Component {
 
@@ -20,7 +19,6 @@ class ListAllHouses extends Component {
 
     renderCardData = () => {
         const {filteredData} = this.props;
-        debugger
         return Object.keys(filteredData).map((key) => {
             const card = filteredData[key];
             return <Col key={key} lg="4" md="6" sm="12"><CardComponent card={card}/></Col>
