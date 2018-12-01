@@ -1,5 +1,5 @@
 
-import cardData from '../../constant/CardDemoData';
+import cardData from '../../constant/cardDemoData';
 import CONSTANTS from '../../constant/constants';
 
 export const fetchListingData = () => {

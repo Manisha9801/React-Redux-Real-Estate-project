@@ -23,17 +23,19 @@ export const applyFilterOptions = (name,value) => {
             case CONSTANTS.FILTER_BY_SPACE:
                 filterOption[name].push(value);
                 dispatch(actionCreator(CONSTANTS.APPLY_FILTER_OPTIONS, filterOption));
-                const data = applyFilter(filterOption,cardData);
-                debugger
-                dispatch(actionCreator(CONSTANTS.SET_UPDATED_DATA,data));
+                const BySpaceFiltereddata = applyFilter(filterOption,cardData);
+                dispatch(actionCreator(CONSTANTS.SET_UPDATED_DATA,BySpaceFiltereddata));
                 break;
             case CONSTANTS.FILTER_BY_PRICE:
                 filterOption[name] = value;
-                const filteredData = applyFilter(filterOption,cardData);
-                dispatch(actionCreator(CONSTANTS.SET_UPDATED_DATA,filteredData));
+                const ByPriceFilteredData = applyFilter(filterOption,cardData);
+                dispatch(actionCreator(CONSTANTS.SET_UPDATED_DATA,ByPriceFilteredData));
                 break;
             case CONSTANTS.FILTER_BY_CITY:
                 filterOption[name].push(value);
+                dispatch(actionCreator(CONSTANTS.APPLY_FILTER_OPTIONS, filterOption));
+                const ByCityFilteredData = applyFilter(filterOption,cardData);
+                dispatch(actionCreator(CONSTANTS.SET_UPDATED_DATA,ByCityFilteredData));
                 break;        
             default:
                 filterOption[name] = value;   
@@ -44,8 +46,7 @@ export const applyFilterOptions = (name,value) => {
 
 export const applyFilter = (filterOption,cardData) => {
     let updated_list = Object.values(cardData);    
-    console.log("updated_list",updated_list);
-    debugger
+    // console.log("updated_list",updated_list);
     Object.keys(filterOption).map((key) => {
         if(key === CONSTANTS.FILTER_BY_PRICE) {
                 if(filterOption[key]!=="") {
@@ -54,7 +55,8 @@ export const applyFilter = (filterOption,cardData) => {
                             if(obj1.price > obj2.price)  return 1;
                             else if(obj1.price < obj2.price) return -1;
                             else return 0;
-                        });                         
+                        }); 
+                        // console.log("updated_listupdated_list",updated_list);
                     }
                     else if (filterOption[key] === "desc") {
                         updated_list.sort((obj1,obj2) => {
@@ -67,9 +69,16 @@ export const applyFilter = (filterOption,cardData) => {
         }
         else if(key === CONSTANTS.FILTER_BY_SPACE) {
             const space = filterOption[key];
-            updated_list = updated_list.filter((element) => space.indexOf(element.type)>-1);  //0 if found, -1 if not found
+            if(space.length > 0)
+                updated_list = updated_list.filter((element) => space.indexOf(element.type)>-1);  //0 if found, -1 if not found
         }
-        // else if (key === CONSTANTS)
+        else if(key === CONSTANTS.FILTER_BY_CITY) {
+            const city = filterOption[key];
+            console.log('city',city);
+            if(city.length > 0)
+                updated_list = updated_list.filter((element) => city.indexOf(element.city)>-1);  //0 if found, -1 if not found
+        }
     });
+    // console.log("updated_list",updated_list);
     return updated_list;
 }  
