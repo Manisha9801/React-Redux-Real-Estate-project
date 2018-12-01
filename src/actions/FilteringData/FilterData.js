@@ -92,7 +92,7 @@ export const removeFilters = (name,value) => {
         Object.keys(filterOption).map((key) => {
             // console.log('filterOption[key]',filterOption[key]);
             if(filterOption[key].length>0&&(typeof(filterOption[key])!="string")) {
-                console.log('type',typeof(filterOption[key])!=String);
+                // console.log('type',typeof(filterOption[key])!=string);
                 debugger
                 filterOption[key] = filterOption[key].filter(item => item!=value);
                 dispatch(actionCreator(CONSTANTS.APPLY_FILTER_OPTIONS, filterOption));
