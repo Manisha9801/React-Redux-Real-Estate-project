@@ -1,7 +1,6 @@
 import React , {Component} from 'react';
 import Wrapper from './../../hoc/Wrapper';
 import { Container, Row, Col } from 'reactstrap';
-
 import { bindActionCreators } from 'redux'
 import {connect} from 'react-redux';
 
@@ -9,6 +8,7 @@ import CardComponent from './../../component/UI/Cards/Cards';
 import Filter from './../../component/Filter/Filter';
 import {fetchListingData} from './../../actions/ListFullData/ListFullData';
 import {setDefaultList} from './../../actions/FilteringData/FilterData';
+import NoDataComponent from './../../component/NoDataComppponent/NoDataComponent';
 
 class ListAllHouses extends Component {
 
@@ -36,7 +36,7 @@ class ListAllHouses extends Component {
                         </Col>
                         <Col lg="9">
                             <Row>
-                                {Object.keys(filteredData).length ? this.renderCardData():<p>No data found..</p>}
+                                {Object.keys(filteredData).length ? this.renderCardData():<NoDataComponent />}
                             </Row>
                         </Col>
                     </Row>
