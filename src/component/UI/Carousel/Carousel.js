@@ -14,6 +14,7 @@ const items = [
   {
     src: img1,
     altText: 'Home-Slide 1',
+    
     // caption: 'Slide 1',
     // header: 'Slide 1 Header'
   },
